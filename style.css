@@ -1,82 +1,72 @@
-*{
-  margin: 0%;
-  padding: 0%;
-  font-family: 'inter';
-  text-transform: capitalize;
-
-}
+/* 🌍 Global Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to bottom,
       #DBCDE0 32%,
-      #DBCDE0 32%,
-      #DBCDE0 33%,
       #DBCDE0 46%,
       #C1B3C7 70%,
       #BC6BDE 91%);
-
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-
-.logo img {
-  border-radius: 50%;
-
+.logo1{
+  border-radius: 80%;
 }
-.tagline {
-  font-size: 1.1em;
-  color: #333;
-  margin: 20px 0;
-  text-align: left;
-}
+
+/* ✨ Text Lines */
+.tagline,
 .secondline {
   font-size: 1.1em;
   color: #333;
-  margin: 20px 0;
-  text-align: right;
+  margin: 10px 0;
+  text-align: center;
 }
 
-
+/* 📥 Input Form */
 form {
-  margin-top: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input[type="text"] {
-  width: 100%;
-  padding: 10px;
+  width: 90%;
+  padding: 12px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-size: 1em;
 }
 
+/* 🚀 Button Styling */
 .button-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
-button {
-  padding: 12px;
+.button-wrapper button {
+  padding: 12px 24px;
   background-color: #7d3c98;
   color: white;
   border: none;
   border-radius: 6px;
   font-size: 1em;
   cursor: pointer;
-
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+.button-wrapper button:hover {
   background-color: #5a2c7a;
 }
 
-
+/* 📱 App Wrapper Styles */
 .app-wrapper {
   width: 375px;
   background-color: #EAEAEA;
@@ -85,6 +75,7 @@ button:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* 🔲 Header Area */
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -101,18 +92,19 @@ button:hover {
   margin-top: 8px;
 }
 
+/* 📋 Task Buttons */
 .primary-btn,
 .task-btn {
-
   color: white;
+  background-color: #7d3c98;
   border: none;
   padding: 14px;
-  margin: 8px 0;
+  margin: 8px 0;,
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
   width: 100%;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .primary-btn:hover,
@@ -120,8 +112,68 @@ button:hover {
   background-color: #9932CC;
 }
 
+/* 📦 Task Group Layout */
 .task-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+/* ---- reset ---- */
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #b61924;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* ---- stats.js ---- */
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: .8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.js-count-particles {
+  font-size: 1.1em;
+}
+
+#stats,
+.count-particles {
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#stats {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.count-particles {
+  border-radius: 0 0 3px 3px;
 }
