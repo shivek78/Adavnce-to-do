@@ -2,29 +2,36 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom,
-      #DBCDE0 32%,
-      #DBCDE0 46%,
-      #C1B3C7 70%,
-      #BC6BDE 91%);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #DBCDE0 32%, #DBCDE0 46%, #C1B3C7 70%, #BC6BDE 91%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.logo1{
+.wrapper {
+  text-align: center;
+  background-color: #ffffffd5;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 🖼️ Logo */
+.logo1 img {
+  width: 100px;
+  height: 100px;
   border-radius: 80%;
+  margin-bottom: 10px;
 }
 
 /* ✨ Text Lines */
 .tagline,
 .secondline {
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: #333;
   margin: 10px 0;
-  text-align: center;
 }
 
 /* 📥 Input Form */
@@ -36,7 +43,8 @@ form {
 }
 
 input[type="text"] {
-  width: 90%;
+  width: 100%;
+  max-width: 280px;
   padding: 12px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -51,7 +59,8 @@ input[type="text"] {
   width: 100%;
 }
 
-.button-wrapper button {
+.button-wrapper button,
+.primary-btn {
   padding: 12px 24px;
   background-color: #7d3c98;
   color: white;
@@ -62,118 +71,170 @@ input[type="text"] {
   transition: background-color 0.3s ease;
 }
 
-.button-wrapper button:hover {
+.button-wrapper button:hover,
+.primary-btn:hover {
   background-color: #5a2c7a;
 }
 
-/* 📱 App Wrapper Styles */
-.app-wrapper {
-  width: 375px;
-  background-color: #EAEAEA;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+/* 🌙 Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
 }
 
-/* 🔲 Header Area */
-.header {
-  text-align: center;
-  margin-bottom: 20px;
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.header .icon {
-  width: 48px;
-  height: 48px;
-}
-
-.header p {
-  color: #333;
-  font-size: 15px;
-  margin-top: 8px;
-}
-
-/* 📋 Task Buttons */
-.primary-btn,
-.task-btn {
-  color: white;
-  background-color: #7d3c98;
-  border: none;
-  padding: 14px;
-  margin: 8px 0;,
-  border-radius: 6px;
-  font-size: 16px;
+.slider {
+  position: absolute;
   cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
 }
 
-.primary-btn:hover,
-.task-btn:hover {
-  background-color: #9932CC;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
 }
 
-/* 📦 Task Group Layout */
+input:checked + .slider {
+  background-color: #5a2c7a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* 📋 Task List & Item Layout */
 .task-group {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-/* ---- reset ---- */
-body {
-  margin: 0;
-  font: normal 75% Arial, Helvetica, sans-serif;
+  gap: 10px;
 }
 
-canvas {
-  display: block;
-  vertical-align: bottom;
+.task-item {
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* ---- particles.js container ---- */
-#particles-js {
-  position: absolute;
+.task-item span.done {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-item small {
+  font-size: 12px;
+  color: #666;
+}
+
+.task-item button {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* 🟢 Priority Indicators */
+.priority-low {
+  border-left: 5px solid #58D68D;
+}
+.priority-medium {
+  border-left: 5px solid #F4D03F;
+}
+.priority-high {
+  border-left: 5px solid #E74C3C;
+}
+
+/* 📅 Input Enhancements */
+#taskForm input,
+#taskForm select {
   width: 100%;
-  height: 100%;
-  background-color: #b61924;
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-/* ---- stats.js ---- */
-.count-particles {
-  background: #000022;
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 80px;
-  color: #13E8E9;
-  font-size: .8em;
-  text-align: left;
-  text-indent: 4px;
-  line-height: 14px;
-  padding-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
+/* 🌙 Dark Mode Support */
+body.dark {
+  background: #1e1e1e;
+  color: #fff;
 }
 
-.js-count-particles {
-  font-size: 1.1em;
+body.dark .wrapper,
+body.dark .app-wrapper {
+  background-color: #2b2b2b;
 }
 
-#stats,
-.count-particles {
-  -webkit-user-select: none;
-  margin-top: 5px;
-  margin-left: 5px;
+body.dark input[type="text"],
+body.dark select {
+  background-color: #444;
+  color: white;
 }
 
-#stats {
-  border-radius: 3px 3px 0 0;
-  overflow: hidden;
+body.dark .task-item {
+  background-color: #3c3c3c;
+  color: white;
+}
+/* 👤 Developer Info (bottom-right corner) */
+.developer-info {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8em;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  z-index: 999;
+  text-align: center;
 }
 
-.count-particles {
-  border-radius: 0 0 3px 3px;
+body.dark .developer-info {
+  background: rgba(44, 44, 44, 0.9);
+  color: #fff;
+}
+
+.developer-info a {
+  text-decoration: none;
+  color: #5a2c7a;
+  margin: 0 4px;
+}
+
+body.dark .developer-info a {
+  color: #d2a9f4;
 }

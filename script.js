@@ -1,15 +1,19 @@
 let form = document.querySelector('.form');
-let userName;
 
 form.addEventListener('submit', (e) => {
-  e.preventDefault(); // prevent default form behavior
+  e.preventDefault();
+
   let nameInput = document.querySelector('.name');
-  userName = nameInput.value;
+  let userName = nameInput.value.trim();
 
+  if (userName === "") {
+    alert("Please enter your name to proceed.");
+    return;
+  }
 
-  console.log('Form submitted by:', userName);
-// Redirect to next page
+  // Save name to localStorage
+  localStorage.setItem("username", userName);
+
+  // Redirect to task manager page
   location.href = "taskmanager.html";
 });
-
-

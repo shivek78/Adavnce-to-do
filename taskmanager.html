@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Task Manager</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!--------------logo setion--------------------->
-  <div class="header">
-    <img src="logo.png" alt="Graph Icon" class="icon"><p>Welcome,<h1>name</h1></p>
-  </div>
 
-  <div class="app-wrapper">
+  <!-- 🌌 Particles Background -->
+  <div id="particles-js"></div>
 
-<!--------------add new  task section--------------------->
-    <div class="wrapper">
-      <input class="name" type="text" placeholder="ADD NEW TASK">
-      <div class="button-wrapper">
-        <button>ADD NEW TASK</button>
+  <!-- 📦 Main App Wrapper -->
+  <div class="app-wrapper wrapper">
 
-
-      </div>
-      <ul>
-        <li> task </li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-
-      </ul>
+    <!-- 👋 Welcome Header -->
+    <div class="header">
+      <h2>Welcome, <span id="userName">User</span>!</h2>
+      <p>Let's manage your tasks.</p>
     </div>
-  
 
+    <!-- 🌙 Dark Mode Toggle -->
+    <div style="text-align: right;">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+      </label>
+    </div>
 
+    <!-- 📝 Task Input Form -->
+    <form id="taskForm">
+      <input type="text" id="taskInput" placeholder="Task Title" required />
+      <input type="date" id="dueDate" />
+      <select id="priority">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+      </select>
+      <button type="submit" class="primary-btn">Add Task</button>
+    </form>
+
+    <!-- 📋 Task List Container -->
+    <div class="task-group" id="taskList"></div>
+  </div>
+<div class="developer-info">
+  <p>Developed by <strong>Shivek Yadav</strong></p>
+
+  <a href="https://github.com/shivek78" target="_blank">💻 GitHub</a> |
+  <a href="mailto:shivekyadav0786@gmail.com">📧 Email</a>
+</div>
+
+  <!-- 🔌 Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="taskmanager.js"></script>
 </body>
-
 </html>
